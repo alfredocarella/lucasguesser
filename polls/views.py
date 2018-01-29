@@ -8,8 +8,10 @@ def index(request):
     with open("polls/guesstimates.json") as guess_list:
         guesstimates = json.load(guess_list)
 
-    response = "Hello, world. You are at the polls index now.\n"
-    for key in guesstimates:
-        response += "{0} guessed {1}\n".format(key, guesstimates[key])
+    with open("polls/template.html", "r") as content_file:
+        content = content_file.read()
+    response = content
+    # for key in guesstimates:
+    #     response += "{0} guessed {1}\n".format(key, guesstimates[key])
     return HttpResponse(response)
 
