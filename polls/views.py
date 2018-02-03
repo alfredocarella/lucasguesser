@@ -17,7 +17,8 @@ def index(request):
     dates = sorted(list(person_by_date.keys()))
     best_guess = nearest(dates, datetime.today())
     winner = person_by_date[best_guess]
-    response = content.format(winner, get_table(dates, person_by_date, best_guess))
+    table_html = get_table(dates, person_by_date, best_guess)
+    response = content.format(winner, table_html, len(dates))
     return HttpResponse(response)
 
 
