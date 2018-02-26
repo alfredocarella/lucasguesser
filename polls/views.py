@@ -15,7 +15,7 @@ def index(request):
 
     person_by_date = {parse(value):key for key, value in guess_by_person.items()}
     dates = sorted(list(person_by_date.keys()))
-    best_guess = nearest(dates, parse("2018-02-14 04:29:00"))
+    best_guess = nearest(dates, parse("2018-02-22 01:18:00"))
     winner = person_by_date[best_guess]
     table_html = get_table(dates, person_by_date, best_guess)
     response = content.format(winner, table_html, len(dates))
